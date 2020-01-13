@@ -24,9 +24,13 @@ for line in os.popen("rm -fR docs/html/").readlines():
     pass
 for line in os.popen("rm -fR docs/obj/").readlines():
     pass
+for line in os.popen("rm -fR docs/code/").readlines():
+    pass
 for line in os.popen("mkdir docs/html 2>&1").readlines():
     pass
 for line in os.popen("mkdir docs/obj 2>&1").readlines():
+    pass
+for line in os.popen("mkdir docs/code 2>&1").readlines():
     pass
 for line in os.popen("sphinx-build -a -E %s %s/html" % (docdir, targetdir)).readlines():
     pass
