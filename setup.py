@@ -10,12 +10,10 @@ setup(
     author='Bart Thate',
     author_email='bthate@dds.nl',
     description="documentation for BOTD",
-    long_description="""
-R E A D M E
+    long_description="""R E A D M E
 
 
-BOTD is a library to program bots and BOTD is a IRC channel bot daemon using
-the BOTD library. BOTD contains no copyright or LICENSE (not does BOTD).
+BOTD is a python3 IRC channel daemon and contains no copyright or LICENSE.
 
 
 I N S T A L L
@@ -27,10 +25,9 @@ untar, cd into the directory and run:
 
 ::
 
- > ./bin/bot -m rss,entry,show localhost \#dunkbots bot
+ > ./bin/botirc localhost \#dunkbots botd
 
-to have it connect to irc, join the channel and do nothing, users have to be !meet <nick> before they can give commands.
-BOTD does it self not depend, you might need to install feedparser yourself to have rss working.
+to have it connect to irc, join the channel and do nothing, users have to be !meet <nick> (on the console) before they can give commands.
 
 you can also download with pip3 and install globally.
 
@@ -46,21 +43,11 @@ if you want to develop on the bot clone the source at github.:
  > cd botd
  > sudo python3 setup.py install
 
-
-I R C
-
-
-for IRC use <server> <channel> <nick> and the bot will connect and join the channel:
+or run a bot locally:
 
 ::
 
- > bot -m rss,entry,show irc.freenode.net \#dunkbots bot
-
-you can use the -b option to start the bot in the background and logfiles can be found in ~/.bot/logs.
-
-
-B O O T
-
+ > ./bin/botd
 
 if you want to have the daemon started at boot, run:
 
@@ -71,53 +58,30 @@ if you want to have the daemon started at boot, run:
 this will install an botd service and starts BOTD on boot.
 
 
-R S S
+C O N F I G U R A T I O N
 
 
-add url:
+you can use the botctl program to configure BOTD:
+
 
 ::
 
- > bot -x rss https://news.ycombinator.com/rss
- ok 1
-
-you can use the find command to see what urls are registered:
-
-::
-
- > bot -x rss
- 0 https://news.ycombinator.com/rss
-
+ > botctl -d /var/lib/botd cfg krn modules rss,udp
+ > botctl -d /var/lib/botd cfg irc server localhost
+ > botctl -d /var/lib/botd cfg irc channel #botd
+ > botctl -d /var/lib/botd meet ~bart@127.0.0.1
+ > botctl -d /var/lib/botd rss https://news.ycombinator.com/rss
 
 
 U D P
 
 
 using udp to relay text into a channel, start the bot with -m udp and use
-the obudp program to send text to the UDP to channel server:
+the botudp program to send text to the UDP to channel server:
 
 ::
 
- > tail -f ~/.bot/logs/bot.log | obudp 
-
-
-U S E R S
-
-
-the default shell user is root@shell and gives access to all the commands that are available.
-if you want to use users to control access to commands use the --users option.
-
-::
-
- > meet bart
- ~bart@localhost added.
-
-you can also use the full userhost as a argument to meet:
-
-::
-
- > meet user@server
- user user@server created
+ > tail -f ~/.bot/logs/bot.log | botudp 
 
 
 M O D U L E S
@@ -127,47 +91,44 @@ BOTD contains the following modules:
 
 ::
 
-
- bl			- bot library.
- bl.all			- contains all sub modules
- bl.bot		- bot base class.
- bl.clk			- clock functions.
- bl.csl			- console.
- bl.dbs			- database.
- bl.err			- errors.
- bl.flt			- list of bots.
- bl.evt			- event.
- bl.hdl			- handler.
- bl.ldr			- module loader.
- bl.log			- logging.
- bl.pst			- persitence.
- bl.shl			- shell.
- bl.tbl			- dispatch tables.
- bl.tms			- time related.
- bl.trm			- terminal code.
- bl.thr			- threads.
- bl.trc			- trace.
- bl.typ			- typing.
- bl.usr		- user management.
- bl.utl			- utilities.
-
-::
-
- botd.cmd		- basic commands
- botd.ent		- log and todo commands.
- botd.irc		- IRC bot.
- botd.udp		- UDP packet to IRC channel relay.
+    botd			- bot library.
+    botd.bot			- bot base class.
+    botd.cfg			- configuration command.
+    botd.clk			- clock functions.
+    botd.cmd			- basic commands
+    botd.csl			- console.
+    botd.dbs			- database.
+    botd.dft			- default values.
+    botd.ent			- log and todo commands.
+    botd.err			- errors.
+    botd.flt			- list of bots.
+    botd.fnd			- search database.
+    botd.gnr			- generic object functions.
+    botd.hdl			- handler.
+    botd.irc			- IRC bot.
+    botd.krn			- kernel code.
+    botd.ldr			- module loader.
+    botd.log			- logging.
+    botd.prs			- parsing of commands.
+    botd.rss			- fetch RSS feeds.
+    botd.shl			- shell.
+    botd.tbl			- core tables.
+    botd.thr			- threads.
+    botd.tms			- time related.
+    botd.trc			- trace.
+    botd.trm			- terminal code.
+    botd.typ			- typing.
+    botd.udp			- UDP packet to IRC channel relay.
+    botd.usr			- user management.
+    botd.utl			- utilities.
  
-C O D E
+
+C O D I N G
 
 
-if you want to add your own modules to the bot, you can put your .py files in a "mods" directory and use the -m option to point to that directory.
-
-::
-
- > botd -m mods
-
-basic code is a function that gets an event as a argument:
+you can write your own modules for the bot, create a mod directory, put your 
+.py file in there and load the module with -m mods. basic code for a command
+is a function that gets an event as a argument:
 
 ::
 
@@ -192,7 +153,6 @@ you can contact me on IRC/freenode/#dunkbots.
 
 | Bart Thate (bthate@dds.nl, thatebart@gmail.com)
 | botfather on #dunkbots irc.freenode.net
-    
     
     
 """,
