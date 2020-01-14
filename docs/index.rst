@@ -1,6 +1,6 @@
 .. title:: python3 IRC channel daemon.
 
-.. image:: jpg/bart2.jpg
+.. image:: jpg/botd4.png
     :height: 3.5cm
     :width: 100%
 
@@ -79,12 +79,29 @@ the botudp program to send text to the UDP to channel server:
  > tail -f ~/.bot/logs/bot.log | botudp 
 
 
+
+C O D I N G
+
+
+you can write your own modules for the bot, create a mod directory, put your 
+.py file in there and load the module with -m mods. basic code for a command
+is a function that gets an event as a argument:
+
+::
+
+ def command(event):
+     << your code here >>
+
+to give feedback to the user use the event.reply(txt) method:
+
+::
+
+ def command(event):
+     event.reply("yooo %s" % event.origin)
+
+
+
 M O D U L E S
-
-
-
-B O T D  (channel daemon)
-
 
 
 BOTD contains the following modules:
@@ -124,26 +141,6 @@ BOTD contains the following modules:
     botd.usr			- user management.
     botd.utl			- utilities.
  
-
-C O D I N G
-
-
-you can write your own modules for the bot, create a mod directory, put your 
-.py file in there and load the module with -m mods. basic code for a command
-is a function that gets an event as a argument:
-
-::
-
- def command(event):
-     << your code here >>
-
-to give feedback to the user use the event.reply(txt) method:
-
-::
-
- def command(event):
-     event.reply("yooo %s" % event.origin)
-
 
 have fun coding ;]
 
