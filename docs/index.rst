@@ -1,18 +1,10 @@
-.. title:: python3 IRC channel daemon.
-
-.. image:: jpg/botd4.png
-    :height: 3.5cm
-    :width: 100%
-
-
 R E A D M E
-
+###########
 
 BOTD is a python3 IRC channel daemon and contains no copyright or LICENSE.
 
-
 I N S T A L L
-
+=============
 
 download the tarball from pypi, https://pypi.org/project/botd/#files
 
@@ -30,19 +22,13 @@ you can also download with pip3 and install globally.
 
  > sudo pip3 install botd --upgrade
 
-if you want to develop on the bot clone the source at github.:
+if you want to develop on the bot clone the source at bitbucket.org.
 
 ::
 
- > git clone https://github.com/bthate/botd
+ > git clone https://bitbucket.org/botd/botd
  > cd botd
  > sudo python3 setup.py install
-
-or run a bot locally:
-
-::
-
- > ./bin/botd
 
 if you want to have the daemon started at boot, run:
 
@@ -52,24 +38,24 @@ if you want to have the daemon started at boot, run:
 
 this will install an botd service and starts BOTD on boot.
 
-
 C O N F I G U R A T I O N
-
+=========================
 
 you can use the botctl program to configure BOTD:
 
-
 ::
 
- > botctl -d /var/lib/botd cfg krn modules rss,udp
- > botctl -d /var/lib/botd cfg irc server localhost
- > botctl -d /var/lib/botd cfg irc channel #botd
- > botctl -d /var/lib/botd meet ~bart@127.0.0.1
- > botctl -d /var/lib/botd rss https://news.ycombinator.com/rss
+ > botctl cfg krn modules rss,udp
+ > botctl cfg irc server localhost
+ > botctl cfg irc channel #botd
+ > botctl meet ~bart@127.0.0.1
+ > botctl rss https://news.ycombinator.com/rss
 
+the botctl program takes normal bot commands and executes them. you can use the -d
+option to use it on other then the default ~/.botd directory.
 
 U D P
-
+=====
 
 using udp to relay text into a channel, start the bot with -m udp and use
 the botudp program to send text to the UDP to channel server:
@@ -78,10 +64,8 @@ the botudp program to send text to the UDP to channel server:
 
  > tail -f ~/.bot/logs/bot.log | botudp 
 
-
-
 C O D I N G
-
+===========
 
 you can write your own modules for the bot, create a mod directory, put your 
 .py file in there and load the module with -m mods. basic code for a command
@@ -99,57 +83,27 @@ to give feedback to the user use the event.reply(txt) method:
  def command(event):
      event.reply("yooo %s" % event.origin)
 
-
-
-M O D U L E S
-
-
-BOTD contains the following modules:
-
-.. autosummary::
-    :toctree: code
-    :template: module.rst
-
-    botd			- bot library.
-    botd.bot			- bot base class.
-    botd.cfg			- configuration command.
-    botd.clk			- clock functions.
-    botd.cmd			- basic commands
-    botd.csl			- console.
-    botd.dbs			- database.
-    botd.dft			- default values.
-    botd.ent			- log and todo commands.
-    botd.err			- errors.
-    botd.flt			- list of bots.
-    botd.fnd			- search database.
-    botd.gnr			- generic object functions.
-    botd.hdl			- handler.
-    botd.irc			- IRC bot.
-    botd.krn			- kernel code.
-    botd.ldr			- module loader.
-    botd.log			- logging.
-    botd.prs			- parsing of commands.
-    botd.rss			- fetch RSS feeds.
-    botd.shl			- shell.
-    botd.tbl			- core tables.
-    botd.thr			- threads.
-    botd.tms			- time related.
-    botd.trc			- trace.
-    botd.trm			- terminal code.
-    botd.typ			- typing.
-    botd.udp			- UDP packet to IRC channel relay.
-    botd.usr			- user management.
-    botd.utl			- utilities.
- 
-
-have fun coding ;]
-
+source is :ref:`here <source>`
 
 I N F O
+=======
 
+.. image:: jpg/smile9.png
+    :height: 2.15cm
+    :align: left
 
-you can contact me on IRC/freenode/#dunkbots.
+.. raw: html
+
+ <br><br><br><br>
+
 
 | Bart Thate (bthate@dds.nl, thatebart@gmail.com)
 | botfather on #dunkbots irc.freenode.net
-    
+|
+| https://twitter.com/aesculaap1
+
+.. toctree::
+   :hidden:
+   :glob:
+
+   *

@@ -6,11 +6,11 @@ import doctest
 import sys
 import os
 
-sys.path.insert(0, os.getcwd())
-print(os.getcwd())
-sys.path.insert(0, os.path.join(os.getcwd(), "..", "..", "botd"))
+sys.path.append(os.path.abspath("."))
+sys.path.insert(0, os.path.abspath(os.path.join(".", "..", "..", "botd", "cmds", "")))
+sys.path.insert(0, os.path.abspath(os.path.join(".", "..", "..", "botd")))
 
-os.environ['PYTHONPATH'] = os.path.abspath(os.getcwd())
+print(sys.path)
 
 try:
     import botd.krn
@@ -66,7 +66,7 @@ html_theme = "haiku"
 #}
 html_theme_path = []
 html_short_title = "BOTD %s" % __version__
-html_favicon = "jpg/smile.jpg"
+html_favicon = "jpg/smile9.png"
 html_static_path = []
 html_extra_path = []
 html_last_updated_fmt = '%Y-%b-%d'
@@ -80,6 +80,17 @@ html_show_copyright = True
 html_copy_source = False
 html_use_opensearch = 'http://botd.rtfd.io'
 html_file_suffix = '.html'
+rst_prolog = """.. image:: ../jpg/botd4.png
+    :height: 3.5cm
+    :align: left
+
+.. title:: IRC channel daemon
+
+.. raw:: html
+
+ <br><br><br><br><br><br>
+
+"""
 htmlhelp_basename = 'pydoc'
 intersphinx_mapping = {
                        'python': ('https://docs.python.org/3', None),
