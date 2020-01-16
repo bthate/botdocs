@@ -92,11 +92,23 @@ source is :ref:`here <source>`
 I N F O
 =======
 
+|
+|
+
+.. image:: jpg/smile9.png
+    :height: 2.15cm
+    :align: left
+
+.. raw: html
+
+ <br><br><br><br><br>
+
 
 | Bart Thate (bthate@dds.nl, thatebart@gmail.com)
 | botfather on #dunkbots irc.freenode.net
 |
 | https://twitter.com/aesculaap1
+
 
 .. toctree::
    :hidden:
