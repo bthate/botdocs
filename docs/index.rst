@@ -92,9 +92,6 @@ source is :ref:`here <source>`
 I N F O
 =======
 
-|
-|
-
 .. image:: jpg/smile9.png
     :height: 2.15cm
     :align: left
