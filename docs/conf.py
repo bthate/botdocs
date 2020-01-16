@@ -80,7 +80,7 @@ html_show_copyright = True
 html_copy_source = False
 html_use_opensearch = 'http://botd.rtfd.io'
 html_file_suffix = '.html'
-rst_prolog = """.. image:: ../jpg/botd4.png
+rst_prolog = """.. image:: jpg/botd4.png
     :height: 3.5cm
     :align: left
 
