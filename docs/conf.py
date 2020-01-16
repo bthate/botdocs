@@ -91,6 +91,25 @@ rst_prolog = """.. image:: jpg/botd4.png
  <br><br><br><br><br><br>
 
 """
+
+rst_epilog = """|
+
+.. image:: jpg/smile9.png
+    :height: 2.15cm
+    :align: left
+
+.. raw: html
+
+ <br><br><br><br><br>
+
+
+| BOTD - python3 IRC channel daemon 
+| 
+|
+| http://pypi.org/project/botd
+
+
+"""
 htmlhelp_basename = 'pydoc'
 intersphinx_mapping = {
                        'python': ('https://docs.python.org/3', None),

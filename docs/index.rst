@@ -66,7 +66,7 @@ the botudp program to send text to the UDP to channel server:
 
 ::
 
- > tail -f ~/.bot/logs/bot.log | botudp 
+ > tail -f ~/.botd/logs/botd.log | botudp 
 
 C O D I N G
 ===========
@@ -91,14 +91,6 @@ source is :ref:`here <source>`
 
 I N F O
 =======
-
-.. image:: jpg/smile9.png
-    :height: 2.15cm
-    :align: left
-
-.. raw: html
-
- <br><br><br><br>
 
 
 | Bart Thate (bthate@dds.nl, thatebart@gmail.com)
