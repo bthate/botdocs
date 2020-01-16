@@ -1,3 +1,7 @@
+.. image:: jpg/botd4.png
+    :height: 3.5
+    :align: left
+
 .. _source:
 
 SOURCE
