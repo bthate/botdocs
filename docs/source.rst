@@ -23,6 +23,7 @@ BOTD contains the following modules:
     botd.ent			- log and todo commands.
     botd.err			- errors.
     botd.flt			- list of bots.
+    botd.fnd			- search objects.
     botd.gnr			- generic object functions.
     botd.hdl			- handler.
     botd.irc			- IRC bot.

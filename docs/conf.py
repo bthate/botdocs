@@ -88,7 +88,12 @@ rst_prolog = """.. image:: jpg/botd4.png
 
 .. raw:: html
 
- <br><br><br><br><br><br>
+ <br><br><br><br>
+
+"""
+rst_epilog = """.. image:: jpg/smile9.png
+    :height: 2.15cm
+    :align: center
 
 """
 
