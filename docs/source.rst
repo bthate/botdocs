@@ -1,46 +1,51 @@
-.. image:: jpg/botd4.png
-    :height: 3.5
-    :align: left
-
 .. _source:
 
-SOURCE
+source
 ######
 
-BOTD contains the following modules:
+here is the code used:
+
+OLIB
+====
 
 .. autosummary::
-    :toctree: code
+    :toctree: 
     :template: module.rst
 
-    botd.bot			- bot base class.
-    botd.cfg			- configuration command.
-    botd.clk			- clock functions.
-    botd.cmd			- basic commands
-    botd.csl			- console.
-    botd.dbs			- database.
-    botd.dft			- default values.
-    botd.ent			- log and todo commands.
-    botd.err			- errors.
-    botd.flt			- list of bots.
-    botd.fnd			- search objects.
-    botd.gnr			- generic object functions.
-    botd.hdl			- handler.
-    botd.irc			- IRC bot.
-    botd.krn			- kernel code.
-    botd.ldr			- module loader.
-    botd.log			- logging.
-    botd.prs			- parsing of commands.
-    botd.rss			- fetch RSS feeds.
-    botd.shl			- shell.
-    botd.thr			- threads.
-    botd.tms			- time related.
-    botd.trc			- trace.
-    botd.trm			- terminal code.
-    botd.typ			- typing.
-    botd.udp			- UDP packet to IRC channel relay.
-    botd.utl			- utilities.
-    botd.usr			- user management.
+
+    ol          - object library
+    ol.bus      - announce
+    ol.csl      - console
+    ol.dbs      - databases
+    ol.hdl      - handler
+    ol.krn      - kernel
+    ol.prs      - parser
+    ol.tms      - times
+    ol.trm      - terminal
+    ol.tsk      - tasks
+    ol.utl      - utilities
+
+BMOD
+====
+
+.. autosummary::
+    :toctree: 
+    :template: module.rst
 
 
-have fun coding ;]
+    bmod.cmd     - command
+    bmod.edt     - edit
+    bmod.ent     - enter log and todo items
+    bmod.fnd     - find typed objects
+    bmod.mbx     - mailbox
+    bmod.rss     - rich site syndicate
+    bmod.udp     - UDP to IRC gateway
+
+BOTLIB
+======
+
+.. autosummary::
+    :toctree: 
+    :template: module.rst
+
+    bot.irc

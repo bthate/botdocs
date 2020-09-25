@@ -7,16 +7,8 @@ import sys
 import os
 
 sys.path.append(os.path.abspath("."))
-sys.path.insert(0, os.path.abspath(os.path.join(".", "..", "..", "botd", "cmds", "")))
-sys.path.insert(0, os.path.abspath(os.path.join(".", "..", "..", "botd")))
 
-print(sys.path)
-
-try:
-    import botd.krn
-    from botd.krn import __version__
-except:
-    __version__ = "noversion"
+__version__ = 100
 
 needs_sphinx='1.1'
 nitpick_ignore=[
@@ -45,7 +37,7 @@ templates_path=['_templates',]
 source_suffix = '.rst'
 source_encoding = 'utf-8-sig'
 master_doc = 'index'
-project = "botd"
+project = "botlib"
 copyright = 'Public Domain'
 version = '%s' % __version__
 release = '%s' % __version__
@@ -65,8 +57,9 @@ html_theme = "haiku"
 #     "nosidebar": True,
 #}
 html_theme_path = []
-html_short_title = "BOTD %s" % __version__
-html_favicon = "jpg/smile9.png"
+html_short_title = "BOTLIB %s" % __version__
+html_short_title = ""
+html_favicon = "smile.jpg"
 html_static_path = []
 html_extra_path = []
 html_last_updated_fmt = '%Y-%b-%d'
@@ -78,24 +71,15 @@ html_show_sourcelink = False
 html_show_sphinx = False
 html_show_copyright = True
 html_copy_source = False
-html_use_opensearch = 'http://botd.rtfd.io'
+html_use_opensearch = 'http://botlib.rtfd.io'
 html_file_suffix = '.html'
-rst_prolog = """.. image:: jpg/botd4.png
+rst_prolog = """.. image:: bl2.png
+    :width: 100%
     :height: 3.5cm
-    :align: left
 
-.. title:: IRC channel daemon
-
-.. raw:: html
-
- <br><br><br><br><br><br>
-
+.. title:: framework to program bots
 """
-rst_epilog = """.. image:: jpg/smile9.png
-    :height: 2.15cm
-    :align: center
-
-"""
+rst_epilog = ""
 
 htmlhelp_basename = 'pydoc'
 intersphinx_mapping = {
