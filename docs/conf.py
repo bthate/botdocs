@@ -59,7 +59,7 @@ html_theme = "haiku"
 html_theme_path = []
 html_short_title = "BOTLIB %s" % __version__
 html_short_title = ""
-html_favicon = "smile.jpg"
+html_favicon = "blsmile.png"
 html_static_path = []
 html_extra_path = []
 html_last_updated_fmt = '%Y-%b-%d'
@@ -73,13 +73,15 @@ html_show_copyright = True
 html_copy_source = False
 html_use_opensearch = 'http://botlib.rtfd.io'
 html_file_suffix = '.html'
-rst_prolog = """.. image:: bl2.png
+rst_prolog = """.. image:: botlib2.png
     :width: 100%
     :height: 3.5cm
 
 .. title:: framework to program bots
 """
-rst_epilog = ""
+rst_epilog = """.. image:: blsmile.png
+    :align: center
+"""
 
 htmlhelp_basename = 'pydoc'
 intersphinx_mapping = {
