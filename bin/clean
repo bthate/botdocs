@@ -2,4 +2,4 @@
 #
 # cleanup all non distro files
 
-rm -fR build dist botdocs.egg-info logs DEADJOE __pycache__ testdata runbotd runbotd.tar.gz init.d/*~  build dist botdocs.egg-info *~  botdocs/*~ botdocs/__pycache__ bin/*~ docs/*~ docs/__pycache__ docs/obj docs/html
+rm -fR env env.tar.gz docs/bot.irc.rst docs/ol*.rst docs/bmod*.rst html build botdocs.egg-info logs DEADJOE __pycache__ testdata runbotd runbotd.tar.gz init.d/*~  botdocs.egg-info *~  botdocs/*~ botdocs/__pycache__ bin/*~ docs/*~ docs/__pycache__
