@@ -81,6 +81,7 @@ rst_prolog = """.. image:: botlib2.png
 """
 rst_epilog = """.. image:: blsmile.png
     :align: center
+    :height: 2.5cm
 """
 
 htmlhelp_basename = 'pydoc'

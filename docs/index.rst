@@ -8,6 +8,15 @@ BOTLIB
 
 installation is through pypi:
 
+::
+
+ > sudo pip3 install botlib 
+
+if you have problems with a previous installed version, try forcing a reinstall:
+
+
+::
+
  > sudo pip3 install botlib --upgrade --force-reinstall
 
 you can also run directly from the tarball, see https://pypi.org/project/botlib/#files
