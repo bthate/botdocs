@@ -4,18 +4,9 @@ BOTLIB
 | Welcome to BOTLIB, framework to program bots ! see https://pypi.org/project/botlib/ 
 
 
-| BOTLIB is placed in the public domain and contain no copyright or LICENSE, this makes BOTLIB truely free (pastable) code you can use how you see fit, 
+| BOTLIB is placed in the public domain and contains no copyright or LICENSE, this makes BOTLIB truely free (pastable) code you can use how you see fit, 
 
 installation is through pypi:
-
-::
-
- > sudo pip3 install botlib 
-
-if you have problems with a previous installed version, try forcing a reinstall:
-
-
-::
 
  > sudo pip3 install botlib --upgrade --force-reinstall
 
@@ -32,11 +23,12 @@ prompt, it will return with no response:
  $ bcmd
  $ 
 
-you can use objr <cmd> to run a command directly:
+you can use bcmd <cmd> to run a command directly, use the !cmd command to
+see a list of commands:
 
 ::
 
- $ bcmd cmds
+ $ bcmd cmd
  cmd|dne|edt|fnd|flt|krn|log|add|tsk|tdo|udp|upt|ver
 
 
@@ -46,13 +38,12 @@ BOTLIB also has it's own shell, bsh:
 
   $ bsh
   > cmd
-
- cmd|dne|edt|fnd|flt|krn|log|add|tsk|tdo|udp|upt|ver
+  cmd|dne|edt|fnd|flt|krn|log|add|tsk|tdo|udp|upt|ver
 
 IRC
 ===
 
-BOTLIB provides the birc as IRC client, configuration is done with the cfg command:
+BOTLIB provides the bot as IRC client, configuration is done with the cfg command:
 
 ::
 
@@ -75,7 +66,7 @@ start it's poller.
 
 ::
 
- $ birc mods=rss
+ $ bot mods=rss
 
 to add an url use the rss command with an url:
 
@@ -131,7 +122,7 @@ a move all methods to functions and to
 
 ::
 
- method(obj, *args) instead of obj.method(*arg)
+ method(obj, *args) instead of obj.method(*args)
 
 way of programming with objects. If you are use to functional programming you'll like it (or not) ;]
 
@@ -155,6 +146,7 @@ BOTLIB uses bmod as the namespace to distribute modules for BOTLIB:
 
 ::
 
+   bmod.cfg	= config
    bmod.cmd	- command
    bmod.edt	- edit
    bmod.ent	- enter log and todo items
@@ -185,55 +177,39 @@ the /etc/systemd/system/botd.service file:
 
 
  [Unit]
- Description=BOTD - 24/7 channel daemon
+ Description=24/7 channel daemon
  After=network-online.target
  Wants=network-online.target
 
  [Service]
- User=botlib
- Group=botlib
+ User=botd
+ Group=botd
  ExecStart=/usr/local/bin/botd 
 
  [Install]
  WantedBy=multi-user.target
 
-create a homedir for objr:
+add the botd user to the system:
 
 ::
 
- $ mkdir /home/botlib
- $ mkdir /home/botlib/.bot
- $ mkdir /home/botlib/.bot/bmod
+ $ groupadd botd
+ $ useradd botd -d /var/lib/botd/
+ $ passwd botd
+ $ chown -R botd:botd /var/lib/botd/
 
-add the botlib user to the system:
-
-::
-
- $ groupadd botlib
- $ chown -R botlib:botlib /home/botlib
- $ useradd botlib -d /home/botlib
- $ passwd botlib
-
-configure botd to connect to irc:
+copy modules over to botd's work directory:
 
 ::
 
- $ sudo -u botlib bcmd cfg server=irc.freenode.net channel=#botlib nick=birc
-
-copy modules over to botlib's work directory:
-
-::
-
- $ cp -Ra bmod/*.py /home/botlib.bot/bmod
+ $ cp -Ra bmod/*.py /var/lib/botd/bmod
 
 make sure permissions are set properly:
 
 ::
 
- $ chown -R botlib:botlib /home/botlib
- $ chown -R botlib:botlib /home/botlib/.bot
- $ chmod -R 700 /home/botlib/.bot/bmod/
- $ chmod -R 400 /home/botlib/.bot/bmod/*.py
+ $ chmod -R 700 /var/lib/botd/bmod/
+ $ chmod -R 400 /var/lib/botd/bmod/*.py
 
 add the botd service with:
 
@@ -242,12 +218,21 @@ add the botd service with:
  $ sudo systemctl enable botd
  $ sudo systemctl daemon-reload
 
+configure botd to connect to irc:
+
+::
+
+ $ sudo -u botd bcmd cfg server=irc.freenode.net channel=#botlib nick=botd
+
 then restart the botd service.
 
 ::
 
  $ sudo service botd stop
  $ sudo service botd start
+
+the bot should join your configured channel, if it doesn't look at the
+/var/log/syslog for any debug messages. 
 
 if you don't want botd to startup at boot, remove the service file:
 
@@ -258,11 +243,10 @@ if you don't want botd to startup at boot, remove the service file:
 CONTACT
 =======
 
-source is :ref:`here <source>`
+contact me on IRC/freenode/#dunkbots or email me at bthate@dds.nl
 
 | Bart Thate (bthate@dds.nl, thatebart@gmail.com)
 | botfather on #dunkbots irc.freenode.net
-| http:/pypi.org/project/botlib
 
 .. toctree::
    :hidden:
