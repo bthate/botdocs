@@ -3,14 +3,23 @@ BOTLIB
 
 | Welcome to BOTLIB, framework to program bots ! see https://pypi.org/project/botlib/ 
 
+BOTLIB is placed in the public domain and contains no copyright or LICENSE, this makes BOTLIB truely
+free (pastable) code you can use how you see fit.
 
-| BOTLIB is placed in the public domain and contains no copyright or LICENSE, this makes BOTLIB truely free (pastable) code you can use how you see fit, 
+INSTALL
+=======
 
 installation is through pypi:
 
- > sudo pip3 install botlib --upgrade --force-reinstall
+::
 
-you can also run directly from the tarball, see https://pypi.org/project/botlib/#files
+ > sudo pip3 install botlib
+
+if you have previous versions already installed and things fail try to force reinstall:
+
+::
+
+ > sudo pip3 install botlib --upgrade --force-reinstall
 
 USAGE
 =====
@@ -146,25 +155,24 @@ BOTLIB uses bmod as the namespace to distribute modules for BOTLIB:
 
 ::
 
-   bmod.cfg	= config
-   bmod.cmd	- command
-   bmod.edt	- edit
-   bmod.ent	- enter log and todo items
-   bmod.fnd	- find typed objects
-   bmod.mbx	- mailbox
-   bmod.rss	- rich site syndicate
-   bmod.udp	- UDP to IRC gateway
+    bmod.cfg	= config
+    bmod.cmd	- command
+    bmod.edt	- edit
+    bmod.ent	- enter log and todo items
+    bmod.fnd	- find typed objects
+    bmod.mbx	- mailbox
+    bmod.rss	- rich site syndicate
+    bmod.udp	- UDP to IRC gateway
 
 BOTLIB has 1 module, the bot.irc module:
 
 ::
 
-   bot.irc
+    bot.irc
 
 this package adds bot.irc to the bot namespace.
 
 you can add you own modules to the bot and bmod packages, they are namespace packages.
-
 
 SERVICE
 =======
@@ -184,7 +192,7 @@ the /etc/systemd/system/botd.service file:
  [Service]
  User=botd
  Group=botd
- ExecStart=/usr/local/bin/botd 
+ ExecStart=/usr/local/bin/botd -n
 
  [Install]
  WantedBy=multi-user.target
